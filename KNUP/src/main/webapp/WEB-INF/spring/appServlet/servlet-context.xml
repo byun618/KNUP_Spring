@@ -23,6 +23,22 @@
 	
 	<context:component-scan base-package="com.knu.KNUP" />
 	
+	<!-- JDBC -->
+	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
+		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
+		<beans:property name="username" value="system" />
+		<beans:property name="password" value="oracle" />
+	</beans:bean>
 	
+	<!-- Mybatis -->
+	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:property name="dataSource" ref="dataSource"/>
+		<beans:property name="mapperLocations" value="classpath:com/knu/KNUP/dao/mapper/*.xml"/>
+	</beans:bean>
+	
+	<beans:bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
+	</beans:bean>
 	
 </beans:beans>

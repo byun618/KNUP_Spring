@@ -6,9 +6,14 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	Hello world!(Develop)
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+<c:forEach items="${list}" var="dto">
+	<p>${dto.mId}, ${dto.mWritter}</p>
+</c:forEach>
+
 </body>
 </html>
