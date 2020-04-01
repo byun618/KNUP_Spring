@@ -15,5 +15,7 @@
 	<p>${dto.mId}, ${dto.mWritter}</p>
 </c:forEach>
 
+<button onclick="location='login'">LOGIN</button>
+
 </body>
 </html>

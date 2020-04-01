@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.knu.KNUP" />
+	<context:component-scan base-package="com.knu.KNUP, com.knu.KNUP.User" />
 	
 	<!-- JDBC -->
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
