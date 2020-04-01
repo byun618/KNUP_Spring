@@ -1,6 +1,6 @@
-package com.knu.KNUP.dto;
+package com.knu.KNUP.User;
 
-public class ContentDto {
+public class UserDto {
 	private int mId;
 	private String mWritter;
 	
@@ -15,5 +15,5 @@ public class ContentDto {
 	}
 	public void setmWritter(String mWritter) {
 		this.mWritter = mWritter;
-	}
+	}	
 }

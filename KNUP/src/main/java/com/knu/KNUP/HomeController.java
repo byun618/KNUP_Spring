@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.knu.KNUP.dao.IDao;
+import com.knu.KNUP.User.IUserDao;
 
 /**
  * Handles requests for the application home page.
@@ -40,8 +40,8 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		IDao dao = sqlSession.getMapper(IDao.class);
-		model.addAttribute("list", dao.listDao());
+		IUserDao dao = sqlSession.getMapper(IUserDao.class);
+		model.addAttribute("list", dao.list());
 		
 		return "home";
 	}

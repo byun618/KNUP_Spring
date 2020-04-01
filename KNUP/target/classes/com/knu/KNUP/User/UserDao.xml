@@ -3,9 +3,9 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.knu.KNUP.dao.IDao">
+<mapper namespace="com.knu.KNUP.User.IUserDao">
 
-	<select id="listDao" resultType="com.knu.KNUP.dto.ContentDto">
+	<select id="list" resultType="com.knu.KNUP.User.UserDto">
 		select * from board order by mId desc
 	</select>
 </mapper>
