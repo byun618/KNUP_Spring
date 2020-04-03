@@ -1,7 +1,6 @@
 package com.knu.KNUP.User;
 
-import java.util.ArrayList;
-
 public interface IUserDao {
-	public ArrayList<UserDto> list();
+
+	public void insertUser(final int userId, final String userEmail, final String userName);
 }

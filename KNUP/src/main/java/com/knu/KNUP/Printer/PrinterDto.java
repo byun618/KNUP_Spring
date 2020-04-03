@@ -25,5 +25,4 @@ public class PrinterDto {
 		this.printerState = printerState;
 	}
 	
-	
 }

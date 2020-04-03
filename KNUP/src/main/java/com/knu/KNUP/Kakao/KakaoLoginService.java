@@ -15,17 +15,24 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.knu.KNUP.IService;
+import com.knu.KNUP.User.IUserDao;
+import com.knu.KNUP.User.UserDto;
 
 public class KakaoLoginService implements IService {
 	
 	//카카오 홈페이지에서 받은 로그인 할 때 쓰는 임시 코드값
 	private String code;
 	private HttpSession session;
+	
+	@Autowired
+	private SqlSession sqlSession;
 
 	public KakaoLoginService(String code, HttpSession session) {
 		super();
@@ -46,13 +53,17 @@ public class KakaoLoginService implements IService {
 		JsonNode properties = userInfo.path("properties");
 		JsonNode kakao_account = userInfo.path("kakao_account");
 		
-		String id = userInfo.path("id").asText();
-		String name = properties.path("nickname").asText();
-		String email = kakao_account.path("email").asText();
+		int userId = Integer.parseInt(userInfo.path("id").asText());
+		String userEmail = kakao_account.path("email").asText();
+		String userName = properties.path("nickname").asText();
 		
-		model.addAttribute("id", id);
-		model.addAttribute("name", name);
-		model.addAttribute("email", email);
+//		UserDto dto = new UserDto();
+//		dto.setUserId(userId);
+//		dto.setUserEmail(userEmail);
+//		dto.setUserName(userName);
+
+		IUserDao dao = sqlSession.getMapper(IUserDao.class);
+		//dao.insertUser(userId, userEmail, userName);
 	}
 	
 	@Override
@@ -62,6 +73,7 @@ public class KakaoLoginService implements IService {
 	}
 	
 	private JsonNode getAccessToken(String authorize_code) {
+		
 		final String requestUrl = "https://kauth.kakao.com/oauth/token";
 		final List<NameValuePair> postParams = new ArrayList<NameValuePair>();
 		

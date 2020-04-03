@@ -9,7 +9,11 @@
 <body>
 	Login Information
 	<br>
-	${id}, ${name}, ${email}
+	${dto.userId}
+	<br>
+	${dto.userEmail}
+	<br>
+	${dto.userName}
 	<br>
 	<a href = "/KNUP/logout">LogOut</a>
 	<a href = "/KNUP/unlink">Unlink</a>
