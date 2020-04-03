@@ -4,12 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login Information</title>
 </head>
 <body>
-TEST PAGE
-
-
-
+	Login Information
+	<br>
+	${id}, ${name}, ${email}
+	<br>
+	<a href = "/KNUP/logout">LogOut</a>
+	<a href = "/KNUP/unlink">Unlink</a>
 </body>
 </html>

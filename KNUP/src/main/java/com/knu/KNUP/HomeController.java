@@ -1,7 +1,5 @@
 package com.knu.KNUP;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
 import org.apache.ibatis.session.SqlSession;
