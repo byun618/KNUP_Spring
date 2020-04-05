@@ -21,27 +21,27 @@ import org.springframework.ui.Model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.knu.KNUP.IService;
 import com.knu.KNUP.User.IUserDao;
 import com.knu.KNUP.User.UserDto;
 
-public class KakaoLoginService implements IService {
-	
-	//카카오 홈페이지에서 받은 로그인 할 때 쓰는 임시 코드값
-	private String code;
-	private HttpSession session;
+public class KakaoLoginService implements IKakaoService {
 	
 	@Autowired
-	private SqlSession sqlSession;
-
-	public KakaoLoginService(String code, HttpSession session) {
-		super();
-		this.code = code;
-		this.session = session;
+	SqlSession sqlSession;
+	
+	@Override
+	public void excute() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void excute(Model model) {
+		// TODO Auto-generated method stub
+	}
+	
+	@Override
+	public void excute(String code, HttpSession session) {
 		// TODO Auto-generated method stub
 		//Get AccessToken
 		JsonNode accessToken = getAccessToken(code).get("access_token");
@@ -57,20 +57,15 @@ public class KakaoLoginService implements IService {
 		String userEmail = kakao_account.path("email").asText();
 		String userName = properties.path("nickname").asText();
 		
-//		UserDto dto = new UserDto();
-//		dto.setUserId(userId);
-//		dto.setUserEmail(userEmail);
-//		dto.setUserName(userName);
+		UserDto dto = new UserDto();
+		dto.setUserId(userId);
+		dto.setUserEmail(userEmail);
+		dto.setUserName(userName);
 
 		IUserDao dao = sqlSession.getMapper(IUserDao.class);
-		//dao.insertUser(userId, userEmail, userName);
+		dao.insertUser(userId, userEmail, userName);
 	}
-	
-	@Override
-	public void excute() {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 	private JsonNode getAccessToken(String authorize_code) {
 		
@@ -143,5 +138,12 @@ public class KakaoLoginService implements IService {
 		return returnNode;
 	}
 
+	@Override
+	public void excute(String token) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

@@ -5,9 +5,9 @@
 
 <mapper namespace="com.knu.KNUP.User.IUserDao">
 
-	<select id="list" resultType="com.knu.KNUP.User.UserDto">
+	<!-- <select id="list" resultType="com.knu.KNUP.User.UserDto">
 		select * from board order by mId desc
-	</select>
+	</select> -->
 	
 	<insert id="insertUser">
 		insert into knup_user (userId, userEmail, userName) values (#{param1}, #{param2}, #{param3})

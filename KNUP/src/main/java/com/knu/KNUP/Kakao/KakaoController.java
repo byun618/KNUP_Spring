@@ -1,25 +1,34 @@
 package com.knu.KNUP.Kakao;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.knu.KNUP.IService;
 
 @Controller
 public class KakaoController {
 	
-	IService service;
+	@Autowired
+	IKakaoService kakaoLoginService;
+	@Autowired
+	IKakaoService kakaoLogoutService;
+	@Autowired
+	IKakaoService kakaoUnlinkService;
+	
 	
 	@RequestMapping(value = "/login", produces = "application/json", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(@RequestParam("code") String code, Model model, HttpSession session) {
 		
-		service = new KakaoLoginService(code, session); 		
-		service.excute(model);
+		kakaoLoginService.excute(code, session);
 			
 		return "logininfo";
 	}
@@ -27,17 +36,22 @@ public class KakaoController {
 	@RequestMapping(value = "/logout", produces = "application/json")
 	public String logout(HttpSession session) {
 	
-		service = new KakaoLogoutService(session.getAttribute("token").toString());
-		service.excute();
+		kakaoLogoutService.excute(session.getAttribute("token").toString());
 			
 		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/unlink", produces = "application/JSON")
 	public String unlink(HttpSession session) {
-		service = new KakaoUnlinkService(session.getAttribute("token").toString());
-		service.excute();
+
+		kakaoUnlinkService.excute(session.getAttribute("token").toString());
 		
 		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home(Locale locale, Model model) {
+		
+		return "home";
 	}
 }

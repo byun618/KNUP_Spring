@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.knu.KNUP, com.knu.KNUP.Kakao" />
+	<context:component-scan base-package="com.knu.KNUP.Kakao" />
 	
 	<!-- JDBC -->
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
@@ -46,4 +46,8 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
 	</beans:bean>
 	
+	<beans:bean id="kakaoLoginService" class="com.knu.KNUP.Kakao.KakaoLoginService" />
+	<beans:bean id="kakaoLogoutService" class="com.knu.KNUP.Kakao.KakaoLogoutService" />
+	<beans:bean id="kakaoUnlinkService" class="com.knu.KNUP.Kakao.KakaoUnlinkService" />
+
 </beans:beans>
