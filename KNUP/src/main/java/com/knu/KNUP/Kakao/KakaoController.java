@@ -5,14 +5,11 @@ import java.util.Locale;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-
 
 @Controller
 public class KakaoController {
@@ -23,7 +20,6 @@ public class KakaoController {
 	IKakaoService kakaoLogoutService;
 	@Autowired
 	IKakaoService kakaoUnlinkService;
-	
 	
 	@RequestMapping(value = "/login", produces = "application/json", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(@RequestParam("code") String code, Model model, HttpSession session) {
@@ -49,9 +45,4 @@ public class KakaoController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-		
-		return "home";
-	}
 }

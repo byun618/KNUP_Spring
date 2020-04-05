@@ -23,9 +23,7 @@ public class KakaoLogoutService implements IKakaoService {
 		JsonNode node = logout(token);
 		System.out.println("로그인 후 반환되는 아이디 : " + node.get("id"));
 	}
-
 	
-
 	private JsonNode logout(String autorize_code) {
 		
 		final String requestUrl = "https://kapi.kakao.com/v1/user/logout";
