@@ -24,7 +24,7 @@ public class KakaoUnlinkService implements IKakaoService {
 		// TODO Auto-generated method stub
 		System.out.println("asd");
 		JsonNode node = unlink(token);
-		System.out.println("ë¡œê·¸ì¸ í›„ ë°˜í™˜ë˜ëŠ” ì•„ì´ë”” : " + node.get("id"));
+		System.out.println("·Î±×ÀÎ ÈÄ ¹İÈ¯µÇ´Â ¾ÆÀÌµğ : " + node.get("id"));
 	}	
 	
 	private JsonNode unlink(String autorize_code) {

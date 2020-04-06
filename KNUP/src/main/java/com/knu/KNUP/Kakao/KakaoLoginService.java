@@ -53,6 +53,10 @@ public class KakaoLoginService implements IKakaoService {
 		userDto.setUserId(userId);
 		userDto.setUserEmail(userEmail);
 		userDto.setUserName(userName);
+		
+		System.out.println(userId);
+		System.out.println(userEmail);
+		System.out.println(userName);
 
 		IUserDao dao = sqlSession.getMapper(IUserDao.class);
 		dao.insertUser(userId, userEmail, userName);
@@ -114,7 +118,7 @@ public class KakaoLoginService implements IKakaoService {
 //			System.out.println("\nSending 'POST' request to URL : " + requestUrl);
 //			System.out.println("Response Code : " + responseCode);
 			
-			//JSON 형태 반환값 처리 
+			//JSON �삎�깭 諛섑솚媛� 泥섎━ 
 			ObjectMapper mapper = new ObjectMapper();
 			returnNode = mapper.readTree(response.getEntity().getContent());
 			
