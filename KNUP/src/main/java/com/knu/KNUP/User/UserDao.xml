@@ -9,7 +9,8 @@
 		select * from board order by mId desc
 	</select> -->
 	
-	<insert id="insertUser">
-		insert into knup_user (userId, userEmail, userName) values (#{param1}, #{param2}, #{param3})
-	</insert>
+	<update id="insertUser">
+	 		insert into knup_user (userId, userEmail, userName) values (#{param1}, #{param2}, #{param3})
+	
+	</update>
 </mapper>

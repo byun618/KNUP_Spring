@@ -6,9 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 public interface IKakaoService {
-	
-	public void excute();
-	public void excute(Model model);
+
 	public void excute(String code, HttpSession session);
 	public void excute(String token);
 }

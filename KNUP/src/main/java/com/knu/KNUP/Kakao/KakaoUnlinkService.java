@@ -10,11 +10,13 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+@Service("kakaoUnlinkService")
 public class KakaoUnlinkService implements IKakaoService {
 	
 	@Override
@@ -52,18 +54,6 @@ public class KakaoUnlinkService implements IKakaoService {
 		return returnNode;
 		
 		
-	}
-	
-	@Override
-	public void excute() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void excute(Model model) {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override

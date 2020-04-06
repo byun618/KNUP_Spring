@@ -18,29 +18,20 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.knu.KNUP.User.IUserDao;
 import com.knu.KNUP.User.UserDto;
 
-@Service
+@Service("kakaoLoginService")
 public class KakaoLoginService implements IKakaoService {
 	
 	@Autowired
 	SqlSession sqlSession;
 	
-	@Override
-	public void excute() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void excute(Model model) {
-		// TODO Auto-generated method stub
-	}
+	@Autowired
+	UserDto userDto;
 	
 	@Override
 	public void excute(String code, HttpSession session) {
@@ -59,13 +50,13 @@ public class KakaoLoginService implements IKakaoService {
 		String userEmail = kakao_account.path("email").asText();
 		String userName = properties.path("nickname").asText();
 		
-		UserDto dto = new UserDto();
-		dto.setUserId(userId);
-		dto.setUserEmail(userEmail);
-		dto.setUserName(userName);
+		userDto.setUserId(userId);
+		userDto.setUserEmail(userEmail);
+		userDto.setUserName(userName);
 
 		IUserDao dao = sqlSession.getMapper(IUserDao.class);
 		dao.insertUser(userId, userEmail, userName);
+
 	}
 
 	

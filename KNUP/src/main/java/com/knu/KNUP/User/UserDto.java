@@ -1,5 +1,8 @@
 package com.knu.KNUP.User;
 
+import org.springframework.stereotype.Repository;
+
+@Repository("userDto")
 public class UserDto {
 
 	private int userId;
