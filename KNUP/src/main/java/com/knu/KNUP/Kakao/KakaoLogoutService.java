@@ -18,12 +18,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service("kakaoLogoutService")
 public class KakaoLogoutService implements IKakaoService {
+	
 
 	@Override
 	public void excute(String token) {
 		// TODO Auto-generated method stub
 		JsonNode node = logout(token);
-		System.out.println("로그인 후 반환되는 아이디 : " + node.get("id"));
+		System.out.println("濡쒓렇�씤 �썑 諛섑솚�릺�뒗 �븘�씠�뵒 : " + node.get("id"));
+	
+		
 	}
 	
 	private JsonNode logout(String autorize_code) {

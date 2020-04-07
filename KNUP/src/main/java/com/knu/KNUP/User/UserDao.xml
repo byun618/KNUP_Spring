@@ -23,4 +23,9 @@
    
 	
 	</update>
+	
+	<update id="deleteUser">
+			delete from knup_user
+				where userId = #{param1}
+	</update>
 </mapper>

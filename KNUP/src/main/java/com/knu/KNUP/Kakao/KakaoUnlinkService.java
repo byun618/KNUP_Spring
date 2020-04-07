@@ -10,14 +10,27 @@ import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.knu.KNUP.User.IUserDao;
+import com.knu.KNUP.User.UserDto;
 
 @Service("kakaoUnlinkService")
 public class KakaoUnlinkService implements IKakaoService {
+	
+	String a;
+	int userId;
+	
+	@Autowired
+	SqlSession sqlSession;
+	
+	@Autowired
+	UserDto userDto;
 	
 	@Override
 	public void excute(String token) {
@@ -25,6 +38,15 @@ public class KakaoUnlinkService implements IKakaoService {
 		System.out.println("asd");
 		JsonNode node = unlink(token);
 		System.out.println("로그인 후 반환되는 아이디 : " + node.get("id"));
+		
+		
+		a = node.get("id").toString();
+		userId = Integer.parseInt(a);
+		
+		IUserDao dao = sqlSession.getMapper(IUserDao.class);
+		dao.deleteUser(userId);
+		
+		
 	}	
 	
 	private JsonNode unlink(String autorize_code) {
