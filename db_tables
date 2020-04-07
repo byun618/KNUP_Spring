@@ -1,0 +1,45 @@
+create table knup_user(
+    userId INT primary key,
+    userEmail varchar2(20),
+    userName varchar2(20)
+);
+
+
+CREATE TABLE knup_file(
+    fileNo INT primary key NOT NULL,
+    fileName varchar2(20) NOT NULL,
+    fileCapacity varchar2(20) NOT NULL,
+    fileFormat varchar2(20) NOT NULL,
+    fileUploadDate DATE NOT NULL
+    );
+    
+    CREATE SEQUENCE seq_file START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
+    
+ CREATE TABLE knup_printer(
+    printerNo INT primary key not NULL,
+    printerLoc varchar2(20) NOT NULL,
+    prinerState varchar2(20) NOT NULL
+    );
+    
+    
+CREATE TABLE knup_print(
+    printNo INT primary key NOT NULL,
+    fileNo INT,
+    printerNo INT,
+    userId INT,
+    printDate DATE NOT NULL,
+    printStatus varchar2(20) NOT NULL,
+    
+    CONSTRAINT fk_code1 FOREIGN KEY(fileNo)
+         REFERENCES knup_file(fileNo) ON DELETE CASCADE,
+         
+    CONSTRAINT fk_code2 FOREIGN KEY(printerNo)
+         REFERENCES knup_printer(printerNo) ON DELETE CASCADE,
+    
+    CONSTRAINT fk_code3 FOREIGN KEY(userId)
+         REFERENCES knup_user(userId) ON DELETE CASCADE
+         
+    );
+         
+     CREATE SEQUENCE seq_print START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
+    
