@@ -2,6 +2,8 @@ package com.knu.KNUP;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -19,5 +21,25 @@ public class HomeController {
 		
 		logger.info("home");
 		return "home";
+	}
+	
+	@RequestMapping(value="/print")
+	public String goPrint() {
+		return "printForm";
+	}
+	
+	@RequestMapping(value="/printForm")
+	public String printData(HttpServletRequest httpServletRequest,Model model) {
+		/*
+		 * String direction=httpServletRequest.getParameter("direction"); String
+		 * pagenum=httpServletRequest.getParameter("pagenum"); String
+		 * printselect=httpServletRequest.getParameter("printselect");
+		 */	
+		return "result";
+	}
+	
+	@RequestMapping("/result")
+	public String printResult() {
+		return "result";
 	}
 }

@@ -26,7 +26,7 @@ public class KakaoController {
 		
 		kakaoLoginService.excute(code, session);
 			
-		return "logininfo";
+		return "print";
 	}
 	
 	@RequestMapping(value = "/logout", produces = "application/json")

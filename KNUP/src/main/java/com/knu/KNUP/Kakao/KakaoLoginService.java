@@ -58,8 +58,8 @@ public class KakaoLoginService implements IKakaoService {
 		System.out.println(userEmail);
 		System.out.println(userName);
 
-		IUserDao dao = sqlSession.getMapper(IUserDao.class);
-		dao.insertUser(userId, userEmail, userName);
+		//IUserDao dao = sqlSession.getMapper(IUserDao.class);
+		//dao.insertUser(userId, userEmail, userName);
 
 	}
 

@@ -28,10 +28,10 @@
 		maxActive="50" 
 		maxWait="1000" 
 		name="jdbc/Oracle11g"
-		password="oracle" 
+		password="1234" 
 		type="javax.sql.DataSource" 
-		url="jdbc:oracle:thin:@localhost:1521:xe" 
-		username="system"/>
+		url="jdbc:oracle:thin:@localhost:1521:orcl" 
+		username="sdm9999"/>
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--
