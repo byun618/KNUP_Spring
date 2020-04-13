@@ -5,6 +5,12 @@
 	<head>
 	<meta charset="UTF-8">
 	<title>Login Information</title>
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+	    <script>
+	    	Kakao.init('531c5721635c4d44b9fbfb7fd9a9cff8');
+		   
+		    console.log("home : " + Kakao.Auth.getAccessToken());
+	    </script>
 		<!-- <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	    <script>
 		    Kakao.init('531c5721635c4d44b9fbfb7fd9a9cff8');
@@ -31,7 +37,7 @@
 		<a href = "/KNUP/logout">LogOut</a>
 		<a href = "/KNUP/unlink">Unlink</a>
 		
-		${token}
+		Token : ${token}
 		
 <!-- 		<button type="button" onclick='logot()'>asd</button> -->
 	</body>

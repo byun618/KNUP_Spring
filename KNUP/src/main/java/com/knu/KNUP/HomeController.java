@@ -20,26 +20,8 @@ public class HomeController {
 	public String home(Locale locale, Model model) {
 		
 		logger.info("home");
+		
 		return "home";
 	}
 	
-	@RequestMapping(value="/print")
-	public String goPrint() {
-		return "printForm";
-	}
-	
-	@RequestMapping(value="/printForm")
-	public String printData(HttpServletRequest httpServletRequest,Model model) {
-		/*
-		 * String direction=httpServletRequest.getParameter("direction"); String
-		 * pagenum=httpServletRequest.getParameter("pagenum"); String
-		 * printselect=httpServletRequest.getParameter("printselect");
-		 */	
-		return "result";
-	}
-	
-	@RequestMapping("/result")
-	public String printResult() {
-		return "result";
-	}
 }

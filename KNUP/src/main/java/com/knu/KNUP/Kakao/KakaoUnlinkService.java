@@ -35,10 +35,9 @@ public class KakaoUnlinkService implements IKakaoService {
 	@Override
 	public void excute(String token) {
 		// TODO Auto-generated method stub
-		System.out.println("asd");
 		JsonNode node = unlink(token);
-		System.out.println("·Î±×ÀÎ ÈÄ ¹İÈ¯µÇ´Â ¾ÆÀÌµğ : " + node.get("id"));
 		
+		System.out.println("ì—°ë™í•´ì œ í›„ ë°˜í™˜ë˜ëŠ” ì•„ì´ë”” : " + node.get("id"));
 		
 		a = node.get("id").toString();
 		userId = Integer.parseInt(a);
@@ -46,9 +45,9 @@ public class KakaoUnlinkService implements IKakaoService {
 		IUserDao dao = sqlSession.getMapper(IUserDao.class);
 		dao.deleteUser(userId);
 		
-		
 	}	
 	
+	//User Profile ì—ì„œ Unlinkê°€ëŠ¥í•˜
 	private JsonNode unlink(String autorize_code) {
 		JsonNode returnNode = null;
 		

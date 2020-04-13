@@ -1,7 +1,5 @@
 package com.knu.KNUP.Kakao;
 
-import java.util.Locale;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +23,14 @@ public class KakaoController {
 	public String login(@RequestParam("code") String code, Model model, HttpSession session) {
 		
 		kakaoLoginService.excute(code, session);
-			
-		return "print";
+		
+		return "redirect:/";
 	}
 	
 	@RequestMapping(value = "/logout", produces = "application/json")
 	public String logout(HttpSession session) {
 	
-		kakaoLogoutService.excute(session.getAttribute("token").toString());
+		kakaoLogoutService.excute(session.getAttribute("token").toString(), session);
 			
 		return "redirect:/";
 	}

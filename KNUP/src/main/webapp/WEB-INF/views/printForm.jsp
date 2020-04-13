@@ -6,7 +6,7 @@
 
 <body>
 	
-	<form action ="/KNUP/result" method="get">
+	<form action ="/KNUP/printSubmit" method="get">
 		<h2>프린트 방향을 선택해주세요.</h2>
 		<select name="item">
 			<option value="가로">가로</option>

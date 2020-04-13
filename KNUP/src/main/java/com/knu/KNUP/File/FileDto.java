@@ -2,6 +2,9 @@ package com.knu.KNUP.File;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Repository;
+
+@Repository("fileDto")
 public class FileDto {
 	
 	private int fileNo;

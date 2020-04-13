@@ -39,6 +39,7 @@ public class KakaoLoginService implements IKakaoService {
 		//Get AccessToken
 		JsonNode accessToken = getAccessToken(code).get("access_token");
 		session.setAttribute("token", accessToken.toString());
+		session.setAttribute("isLogin", "yes");
 		
 		//Get UserInformation
 		JsonNode userInfo = getUserInfo(accessToken);
@@ -54,12 +55,12 @@ public class KakaoLoginService implements IKakaoService {
 		userDto.setUserEmail(userEmail);
 		userDto.setUserName(userName);
 		
-		System.out.println(userId);
-		System.out.println(userEmail);
-		System.out.println(userName);
+//		System.out.println(userId);
+//		System.out.println(userEmail);
+//		System.out.println(userName);
 
-		//IUserDao dao = sqlSession.getMapper(IUserDao.class);
-		//dao.insertUser(userId, userEmail, userName);
+		IUserDao dao = sqlSession.getMapper(IUserDao.class);
+		dao.insertUser(userId, userEmail, userName);
 
 	}
 

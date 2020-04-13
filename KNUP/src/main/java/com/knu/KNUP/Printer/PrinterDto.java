@@ -1,5 +1,8 @@
 package com.knu.KNUP.Printer;
 
+import org.springframework.stereotype.Repository;
+
+@Repository("printerDto")
 public class PrinterDto {
 	
 	private int printerNo;

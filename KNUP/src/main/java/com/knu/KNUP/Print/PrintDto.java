@@ -2,6 +2,9 @@ package com.knu.KNUP.Print;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Repository;
+
+@Repository("printDto")
 public class PrintDto {
 	
 	private int printNo;
