@@ -1,0 +1,9 @@
+{
+    "object_type" : "text",
+    "text" : "Hello World",
+    "link" : {
+        "web_url" : "localhost:8181/KNUP/",
+        "mobile_web_url" : "localhost:8181/KNUP/"
+    },
+    "button_tile" : "바로 확인"
+}
