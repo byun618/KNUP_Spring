@@ -46,8 +46,10 @@
 		<beans:constructor-arg index="0" ref="sqlSessionFactory"/>
 	</beans:bean>
 	
-	<!-- <beans:bean id="kakaoLoginService" class="com.knu.KNUP.Kakao.KakaoLoginService" />
-	<beans:bean id="kakaoLogoutService" class="com.knu.KNUP.Kakao.KakaoLogoutService" />
-	<beans:bean id="kakaoUnlinkService" class="com.knu.KNUP.Kakao.KakaoUnlinkService" /> -->
+	<!-- MultipartResolver 설정 -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	  <beans:property name="maxUploadSize" value="100000000" />
+	  <beans:property name="maxInMemorySize" value="100000000" />
+	</beans:bean> 
 
 </beans:beans>

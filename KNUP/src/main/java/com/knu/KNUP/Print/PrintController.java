@@ -1,11 +1,16 @@
 package com.knu.KNUP.Print;
 
+import java.io.File;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 @Controller
 public class PrintController {
@@ -26,30 +31,29 @@ public class PrintController {
 		
 		return "printForm";
 	}
-	
-//	@RequestMapping(value="/printForm")
-//	public String printForm(HttpServletRequest request, Model model) {
-//		/*
-//		 * String direction=httpServletRequest.getParameter("direction"); String
-//		 * pagenum=httpServletRequest.getParameter("pagenum"); String
-//		 * printselect=httpServletRequest.getParameter("printselect");
-//		 */		
-//		String profile = request.getParameter("profile");
-//		System.out.println("printForm");
-//
-//		return "result";
-//	}
-	
-	@RequestMapping("/printSubmit")
-	public String printSubmit(HttpServletRequest request) {
 
-		String item = request.getParameter("pageRange");		
-//		String slideNum = request.getParameter("slideNum");
-//		String printNum = request.getParameter("printNum");
-//		String fileName = request.getParameter("fileName");
-//		String fileName = request.getParameter("fileName");
+	@RequestMapping(value = "/printSubmit", method = RequestMethod.POST)
+	public String printSubmit(MultipartHttpServletRequest mtf) { 
 		
-		System.out.println("printSubmit : " + item);
+		//File Tag
+		String fileTag = "file";
+		//File Path
+		//본인이 파일업로드 할곳의 위치
+		String filePath = "/Users/sbyun/Desktop/temp/";
+		//File Name
+		
+		MultipartFile file = mtf.getFile(fileTag);
+		String fileName = file.getOriginalFilename();
+		System.out.println(fileName);
+		
+		try {
+			file.transferTo(new File(filePath + fileName));
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+//		String item = mtf.getParameter("item");				
+//		System.out.println("printSubmit : " + item);
 		
 		return "result";
 	}

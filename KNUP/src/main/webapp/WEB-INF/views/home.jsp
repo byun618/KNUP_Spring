@@ -24,15 +24,15 @@
 	if(isLogin == "yes"){
 	%>
 		
-		<form action="printForm" enctype="multipart/form-data">
+<!-- 		<form action="printForm" method="post" enctype="multipart/form-data">
 			
 			프린트할 파일을 선택하세용 ><
 			<input type="file" name="fileName">
 			<br><br>
 			<input type="submit" value="print">
 		
-		</form>
-		
+		</form> -->
+		<a href = "/KNUP/printForm">Print</a>
 		<a href = "/KNUP/logout">LogOut</a>
 		<a href = "/KNUP/unlink">Unlink</a>
 	<%

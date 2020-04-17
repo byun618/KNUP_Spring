@@ -6,11 +6,16 @@
 
 <body>
 	
-	<form action ="/KNUP/printSubmit" method="get">
+	<form action ="/KNUP/printSubmit" method="post" enctype="multipart/form-data">
+	
+		<h2>프린트할 파일을 선택하세용 ><</h2>
+		<input type="file" name="file">
+		<br><br>
+			
 		<h2>프린트 방향을 선택해주세요.</h2>
 		<select name="item">
-			<option value="가로">가로</option>
-			<option value="세로">세로</option>
+			<option value="asd">가로</option>
+			<option value="dfg">세로</option>
 		</select>
 		<br><br>
 		
