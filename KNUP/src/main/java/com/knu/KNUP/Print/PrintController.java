@@ -21,6 +21,8 @@ public class PrintController {
 	IPrintService printPrinterService;
 	@Autowired
 	IPrintService printFileService;
+	@Autowired
+	IPrintService printGenerateCodeService;
 	
 	
 	@RequestMapping(value="/printForm")
@@ -28,6 +30,9 @@ public class PrintController {
 		
 		String fileName = request.getParameter("fileName");
 		System.out.println("printForm : " + fileName);
+		
+		printGenerateCodeService.excute();
+		
 		
 		return "printForm";
 	}
