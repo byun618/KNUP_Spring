@@ -12,7 +12,8 @@ public class PrintDto {
 	private int fileNo;
 	private int printerNo;
 	private Date printDate;
-	private int printStatus; // 0: 신청, 1: 완료
+	private int printStatus; // 0: not working 1 : working
+	private String code;
 	
 	public int getPrintNo() {
 		return printNo;
@@ -49,5 +50,11 @@ public class PrintDto {
 	}
 	public void setPrintStatus(int printStatus) {
 		this.printStatus = printStatus;
+	}
+	public String getCode() {
+		return code;
+	}
+	public void setCode(String code) {
+		this.code = code;
 	}
 }

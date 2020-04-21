@@ -6,8 +6,8 @@ import org.springframework.stereotype.Repository;
 public class PrinterDto {
 	
 	private int printerNo;
-	private String printerLoc;
-	private int printerState; //0 : 고장 or 사용불가, 1 : 정상, 사용가능
+	private String printerName;
+	private int printerState; //0 : not working 1: working
 	
 	public int getPrinterNo() {
 		return printerNo;
@@ -15,11 +15,11 @@ public class PrinterDto {
 	public void setPrinterNo(int printerNo) {
 		this.printerNo = printerNo;
 	}
-	public String getPrinterLoc() {
-		return printerLoc;
+	public String getPrinterName() {
+		return printerName;
 	}
-	public void setPrinterLoc(String printerLoc) {
-		this.printerLoc = printerLoc;
+	public void setPrinterName(String printerName) {
+		this.printerName = printerName;
 	}
 	public int getPrinterState() {
 		return printerState;

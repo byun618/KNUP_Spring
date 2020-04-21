@@ -7,7 +7,7 @@
 
 <update id ="printerNumbering">
 
-	INSERT INTO knup_printer(printerNo, printerLoc, printerState)
+	INSERT INTO knup_printer(printerNo, printerName, printerState)
 	 VALUES (seq_print.NEXTVAL,#{param2},#{param3})
 	 
 </update>
