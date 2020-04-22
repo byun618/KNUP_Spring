@@ -5,11 +5,27 @@
 <title>SONGPRINTER</title>
 
 <body>
+		<script>
+		function checkIt()
+		{
+		
+		var form = document.write_form;     
+		if (form.attach_file.value=="")
+		{
+		alert ("파일을 선택하세요.");
+		form.attach_file.focus();
+		return false;
+		}
+		
+		
+		return true;
+		}
+		</script>
+	<form action ="/KNUP/printSubmit" method="post" enctype="multipart/form-data" 
+					name="write_form" onsubmit="return checkIt()">
 	
-	<form action ="/KNUP/printSubmit" method="post" enctype="multipart/form-data">
-	
-		<h2>프린트할 파일을 선택하세용 ><</h2>
-		<input type="file" name="file">
+		<h2>프린트할 파일을 선택하세용 </h2>
+		<input type="file" name="attach_file">
 		<br><br>
 			
 		<h2>프린트 방향을 선택해주세요.</h2>
@@ -20,25 +36,27 @@
 		<br><br>
 		
 		<h2>페이지당 슬라이드 수</h2>
-		페이지당 슬라이드 수 <input type="text" name="slideNum" size="5">
+		페이지당 슬라이드 수 <input type="text" name="slideNum" size="5" 
+				     onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+				    >
 		<br><br>
 		
 		<h2>페이지 범위</h2>
-		<input type="radio" name="pageRange" value="모두" checked> 모두
+		<input type="radio" name="pageRange" value="all" checked> 모두
 		<br>
-		<input type="radio" name="pageRange" value="시작페이지"> 시작페이지 <input type="text" name="firstPage" size="15" value="숫자 넣으삼"> 끝 페이지 <input type="text" name="lastPage" size="15" value="숫자 넣으셈">
+		<input type="radio" name="pageRange" value="first_p"> 시작페이지 <input type="text" name="firstpage" size="15" value="ex)1,2,3" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"> 끝 페이지 <input type="text" name="lastPage" size="15" value="ex)3,5,6" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 		<br>
-		<input type="radio" name="pageRange" value="선택한 슬라이드"> 선택한 슬라이드
+		<input type="radio" name="pageRange" value="select_s"> 선택한 슬라이드
 		<br>
-		<input type="radio" name="pageRange" value="범위 지정"> 범위 지정 <input type="text" name="RangeChoice" size="15" value="1-3,5-10">
+		<input type="radio" name="pageRange" value="range_d"> 범위 지정 <input type="text" name="RangeChoice" size="15" value="ex)1-3,5-10" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 		<br><br>
 		
 		<h2>프린트 매수</h2>
-		<input type="text" name="printNum" value="1" size="10">
+		<input type="text" name="printNum" value="1" size="10" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 		<br><br>
 		
 		<h2>프린터를 선택해주세요.</h2>
-		<select name="item">
+		<select name="printname">
 			<option value="printer1">printer1</option>
 			<option value="printer2">printer2</option>
 		</select>

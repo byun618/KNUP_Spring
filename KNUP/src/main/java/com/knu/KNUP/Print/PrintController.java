@@ -38,8 +38,8 @@ public class PrintController {
 		//File Tag
 		String fileTag = "file";
 		//File Path
-		//본인이 파일업로드 할곳의 위치
-		String filePath = "/Users/sbyun/Desktop/temp/";
+		//蹂몄씤�씠 �뙆�씪�뾽濡쒕뱶 �븷怨녹쓽 �쐞移�
+		String filePath = "/Users/Owner/Desktop/sent_file/";
 		//File Name
 		
 		MultipartFile file = mtf.getFile(fileTag);
