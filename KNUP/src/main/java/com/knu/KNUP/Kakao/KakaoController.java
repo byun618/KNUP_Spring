@@ -18,6 +18,8 @@ public class KakaoController {
 	IKakaoService kakaoLogoutService;
 	@Autowired
 	IKakaoService kakaoUnlinkService;
+	@Autowired
+	IKakaoService kakaoSendMsgService;
 	
 	@RequestMapping(value = "/login", produces = "application/json", method = { RequestMethod.GET, RequestMethod.POST })
 	public String login(@RequestParam("code") String code, Model model, HttpSession session) {
@@ -39,6 +41,14 @@ public class KakaoController {
 	public String unlink(HttpSession session) {
 
 		kakaoUnlinkService.excute(session.getAttribute("token").toString());
+		
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/sendMsg", produces = "application/JSON")
+	public String sendMsg(HttpSession session) {
+
+		kakaoSendMsgService.excute(session.getAttribute("token").toString());
 		
 		return "redirect:/";
 	}

@@ -35,6 +35,7 @@
 		<a href = "/KNUP/printForm">Print</a>
 		<a href = "/KNUP/logout">LogOut</a>
 		<a href = "/KNUP/unlink">Unlink</a>
+		<a href = "/KNUP/sendMsg">SendMsg</a>
 	<%
 	}else{
 	%>	
