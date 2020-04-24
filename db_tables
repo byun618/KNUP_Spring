@@ -1,7 +1,9 @@
+drop table knup_print;
 drop table knup_user;
 drop table knup_file;
 drop table knup_printer;
-drop table knup_print;
+drop SEQUENCE seq_file;
+drop SEQUENCE seq_print;
 
 create table knup_user(
     userId INT primary key,
@@ -12,13 +14,13 @@ create table knup_user(
 
 CREATE TABLE knup_file(
     fileNo INT primary key NOT NULL,
-    fileName varchar2(20) NOT NULL,
+    fileName varchar2(1000) NOT NULL,
     fileCapacity varchar2(20) NOT NULL,
     fileFormat varchar2(20) NOT NULL,
-    fileUploadDate DATE NOT NULL
+    fileUploadDate varchar2(35) NOT NULL
     );
     
-    CREATE SEQUENCE seq_file START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
+CREATE SEQUENCE seq_file START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
     
  CREATE TABLE knup_printer(
     printerNo INT primary key not NULL,
@@ -26,7 +28,6 @@ CREATE TABLE knup_file(
     prinerState varchar2(20) NOT NULL
     );
     
-
     
 CREATE TABLE knup_print(
     printNo INT primary key NOT NULL,
@@ -47,11 +48,4 @@ CREATE TABLE knup_print(
          
     );
          
-     CREATE SEQUENCE seq_print START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
-    
-2020.04.24 update-----
-
-Alter table knup_print add(code varchar2(20));
-     Alter table knup_printer rename column printerLoc to printName;
-     
------------------------
+CREATE SEQUENCE seq_print START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
