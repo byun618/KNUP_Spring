@@ -1,3 +1,8 @@
+drop table knup_user;
+drop table knup_file;
+drop table knup_printer;
+drop table knup_print;
+
 create table knup_user(
     userId INT primary key,
     userEmail varchar2(20),
