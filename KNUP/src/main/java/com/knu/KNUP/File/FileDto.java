@@ -9,7 +9,7 @@ public class FileDto {
 	
 	private int fileNo;
 	private String fileName;
-	private float fileCapacity;
+	private long fileCapacity;
 	private String fileFormat;
 	private Date fileUploadDate;
 	
@@ -28,7 +28,7 @@ public class FileDto {
 	public float getFileCapacity() {
 		return fileCapacity;
 	}
-	public void setFileCapacity(float fileCapacity) {
+	public void setFileCapacity(long fileCapacity) {
 		this.fileCapacity = fileCapacity;
 	}
 	public String getFileFormat() {

@@ -3,12 +3,12 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.knu.KNUP.File.FileDto">
+<mapper namespace="com.knu.KNUP.File.IFileDao">
 
 <update id ="fileUpLoad">
 
 INSERT INTO knup_file (fileNo, fileName, fileCapacity, fileFormat, fileUploadDate)
-	 VALUES (seq_file.NEXTVAL,#{param2},#{param3},#{param4},#{param5})
+	 VALUES (seq_file.NEXTVAL,#{param1},#{param2},#{param3}, #{param4})
 	 
 	</update>
 	

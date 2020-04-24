@@ -5,22 +5,15 @@
 
 <mapper namespace="com.knu.KNUP.User.IUserDao">
 
-	<!-- <select id="list" resultType="com.knu.KNUP.User.UserDto">
-		select * from board order by mId desc
-	</select> -->
 	
 	<update id="insertUser">
-  <!--  	 insert into knup_user (userId, userEmail, userName) values (#{param1}, #{param2},#{param3})
 
-	 -->
 			 merge into knup_user using dual
 			  on (userId = #{param1})
 	  			when matched then 
 	  				update set userEmail=#{param2}, userName=#{param3}
 	  			when not matched then 
 	 				insert (userId, userEmail, userName) values (#{param1}, #{param2}, #{param3})
-	
-   
 	
 	</update>
 	

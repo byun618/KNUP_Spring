@@ -27,8 +27,8 @@
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
 		<beans:property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />
-		<beans:property name="username" value="sysknup" />
-		<beans:property name="password" value="1111" />
+		<beans:property name="username" value="system" />
+		<beans:property name="password" value="oracle" />
 	</beans:bean>
 	
 	<!-- Mybatis -->
@@ -38,6 +38,7 @@
 			<!-- *Dao.xml file classpath 추가하는 곳 -->
 			<beans:list>
 				 <beans:value>classpath:com/knu/KNUP/User/UserDao.xml</beans:value>
+				 <beans:value>classpath:com/knu/KNUP/File/FileDao.xml</beans:value>
 			</beans:list>
 		</beans:property>
 	</beans:bean>

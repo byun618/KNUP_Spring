@@ -12,27 +12,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.knu.KNUP.File.FileDto;
+
 @Controller
 public class PrintController {
 	
 	@Autowired
 	IPrintService printSubmitService;
 	@Autowired
+	IPrintService printGenerateCodeService;
+	@Autowired
 	IPrintService printPrinterService;
 	@Autowired
 	IPrintService printFileService;
-	@Autowired
-	IPrintService printGenerateCodeService;
-	
 	
 	@RequestMapping(value="/printForm")
 	public String printForm(HttpServletRequest request) {
 		
-		String fileName = request.getParameter("fileName");
-		System.out.println("printForm : " + fileName);
-		
-		printGenerateCodeService.excute();
-		
+		//printGenerateCodeService.excute();
 		
 		return "printForm";
 	}
@@ -40,25 +37,18 @@ public class PrintController {
 	@RequestMapping(value = "/printSubmit", method = RequestMethod.POST)
 	public String printSubmit(MultipartHttpServletRequest mtf) { 
 		
-		//File Tag
-		String fileTag = "file";
-		//File Path
-		//蹂몄씤�씠 �뙆�씪�뾽濡쒕뱶 �븷怨녹쓽 �쐞移�
-		String filePath = "/Users/Owner/Desktop/sent_file/";
-		//File Name
+		String direction = mtf.getParameter("direction");
+		String slideQty = mtf.getParameter("slideQty");
+		String pageRange = mtf.getParameter("pageRange");
+		String printQty = mtf.getParameter("printQty");
+	
+		printFileService.excute(mtf);
+		printPrinterService.excute(mtf);
 		
-		MultipartFile file = mtf.getFile(fileTag);
-		String fileName = file.getOriginalFilename();
-		System.out.println(fileName);
+		//i think need table about print config
 		
-		try {
-			file.transferTo(new File(filePath + fileName));
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
 		
-//		String item = mtf.getParameter("item");				
-//		System.out.println("printSubmit : " + item);
+
 		
 		return "result";
 	}

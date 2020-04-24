@@ -29,14 +29,14 @@
 		<br><br>
 			
 		<h2>프린트 방향을 선택해주세요.</h2>
-		<select name="item">
-			<option value="asd">가로</option>
-			<option value="dfg">세로</option>
+		<select name="direction">
+			<option value="hor">가로</option>
+			<option value="ver">세로</option>
 		</select>
 		<br><br>
 		
 		<h2>페이지당 슬라이드 수</h2>
-		페이지당 슬라이드 수 <input type="text" name="slideNum" size="5" 
+		페이지당 슬라이드 수 <input type="text" name="slideQty" size="5" 
 				     onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
 				    >
 		<br><br>
@@ -52,11 +52,11 @@
 		<br><br>
 		
 		<h2>프린트 매수</h2>
-		<input type="text" name="printNum" value="1" size="10" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
+		<input type="text" name="printQty" value="1" size="10" onKeyup="this.value=this.value.replace(/[^0-9]/g,'');">
 		<br><br>
 		
 		<h2>프린터를 선택해주세요.</h2>
-		<select name="printname">
+		<select name="printerName">
 			<option value="printer1">printer1</option>
 			<option value="printer2">printer2</option>
 		</select>
