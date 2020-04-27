@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.knu.KNUP.Print.PrintDao">
+
+<update id ="printInfo">
+
+	INSERT INTO knup_print(printNo,userId,fileNo,,printDate,printStatus,code,printerName)
+	 VALUES (seq_print.NEXTVAL,#{param2},#{param3},#{param4},#{param5},#{param6},#{param7})
+	 
+</update>
+</mapper>

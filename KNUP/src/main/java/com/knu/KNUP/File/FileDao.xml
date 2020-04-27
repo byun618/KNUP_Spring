@@ -7,8 +7,8 @@
 
 <update id ="fileUpLoad">
 
-INSERT INTO knup_file (fileNo, fileName, fileCapacity, fileFormat, fileUploadDate)
-	 VALUES (seq_file.NEXTVAL,#{param1},#{param2},#{param3}, #{param4})
+INSERT INTO knup_file (fileNo, fileName, fileCapacity, fileFormat)
+	 VALUES (seq_file.NEXTVAL,#{param1},#{param2},#{param3})
 	 
 	</update>
 	

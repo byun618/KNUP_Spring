@@ -9,10 +9,10 @@ public class PrintDto {
 	private int printNo;
 	private int userId;
 	private int fileNo;
-	private int printerNo;
 	private Date printDate;
 	private int printStatus; // 0: not working 1 : working
 	private String code;
+	private String printerName;
 	
 	public int getPrintNo() {
 		return printNo;
@@ -32,12 +32,7 @@ public class PrintDto {
 	public void setFileNo(int fileNo) {
 		this.fileNo = fileNo;
 	}
-	public int getPrinterNo() {
-		return printerNo;
-	}
-	public void setPrinterNo(int printerNo) {
-		this.printerNo = printerNo;
-	}
+	
 	public Date getPrintDate() {
 		return printDate;
 	}
@@ -55,5 +50,11 @@ public class PrintDto {
 	}
 	public void setCode(String code) {
 		this.code = code;
+	}
+	public String getPrinterNo() {
+		return printerName;
+	}
+	public void setPrinterNo(String printerName) {
+		this.printerName = printerName;
 	}
 }

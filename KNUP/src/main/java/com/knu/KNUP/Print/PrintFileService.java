@@ -41,11 +41,12 @@ public class PrintFileService implements IPrintService{
 		
 		//File Path
 		//it's your own path
-		String filePath = "/Users/sbyun/Desktop/temp/";
+		String filePath = "C:\\Users\\ASUS\\Desktop\\youmin";
 		String fileName = file.getOriginalFilename();
 		
 		IFileDao dao = sqlSession.getMapper(IFileDao.class);
-		dao.fileUpLoad(fileName, file.getSize(), ".docx", ldt.toString());
+		//dao.fileUpLoad(fileName, file.getSize(), ".docx", ldt.toString());
+		dao.fileUpLoad(fileName, file.getSize(), ".docx");
 	
 		//file transfer
 		try {

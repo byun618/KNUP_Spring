@@ -11,7 +11,7 @@ public class FileDto {
 	private String fileName;
 	private long fileCapacity;
 	private String fileFormat;
-	private Date fileUploadDate;
+	
 	
 	public int getFileNo() {
 		return fileNo;
@@ -37,11 +37,6 @@ public class FileDto {
 	public void setFileFormat(String fileFormat) {
 		this.fileFormat = fileFormat;
 	}
-	public Date getFileUploadDate() {
-		return fileUploadDate;
-	}
-	public void setFileUploadDate(Date fileUploadDate) {
-		this.fileUploadDate = fileUploadDate;
-	}
+	
 
 }

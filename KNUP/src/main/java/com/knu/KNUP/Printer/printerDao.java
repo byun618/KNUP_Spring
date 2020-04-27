@@ -1,5 +1,5 @@
 package com.knu.KNUP.Printer;
 
-public interface printerDao {
-	public void printerNumbering(int printNo, String printerLoc, String printerState );
+public interface PrinterDao {
+	public void printerNumbering(int printNo, String printerName, String printerState );
 }
