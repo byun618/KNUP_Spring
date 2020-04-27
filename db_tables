@@ -14,27 +14,24 @@ create table knup_user(
     
  CREATE TABLE knup_printer(
     printerNo INT primary key not NULL,
-    printerName varchar2(20) NOT NULL,
+    printerName varchar2(20) UNIQUE,
     prinerState varchar2(20) NOT NULL
     );
     
     
 CREATE TABLE knup_print(
     printNo INT primary key NOT NULL,
-    fileNo INT,
-    printerName varchar2(20),
+    printerName varchar2(20) UNIQUE,
     userId INT,
     printDate DATE NOT NULL,
     printStatus varchar2(20) NOT NULL,
     code varchar2(20),
-    
-    CONSTRAINT fk_code1 FOREIGN KEY(fileNo)
-         REFERENCES knup_file(fileNo) ON DELETE CASCADE,
+    filePath varchar2(100),
          
-    CONSTRAINT fk_code2 FOREIGN KEY(printerName)
+    CONSTRAINT fk_code1 FOREIGN KEY(printerName)
          REFERENCES knup_printer(printerName) ON DELETE CASCADE,
     
-    CONSTRAINT fk_code3 FOREIGN KEY(userId)
+    CONSTRAINT fk_code2 FOREIGN KEY(userId)
          REFERENCES knup_user(userId) ON DELETE CASCADE
          
     );
@@ -42,11 +39,10 @@ CREATE TABLE knup_print(
 CREATE SEQUENCE seq_print START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
 
 ----0427 db----
-//print table에 code를 추가하고, pritner table의 printerLoc를 printerName으로 변경하였습니다.
-//printerNo를 drop하고 printerName을 print의 foreign key로 설정하였습니다.
+---print table에 code를 추가하고, pritner table의 printerLoc를 printerName으로 변경하였습니다.
+---printerNo를 drop하고 printerName을 print의 foreign key로 설정하였습니다.
 
-alter table knup_print add UNIQUE(printerName);
-alter table knup_printer add UNIQUE(printerName);
+
 
 //설정한 제약조건을 확인합니다.
 select a.constraint_name, a.table_name, b.column_name, a.constraint_type, a.r_constraint_name
