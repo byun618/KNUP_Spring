@@ -49,3 +49,9 @@ CREATE TABLE knup_print(
     );
          
 CREATE SEQUENCE seq_print START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
+
+----0427 db----
+
+
+Alter table knup_print add(code varchar2(20));
+Alter table knup_printer rename column printerLoc to printName;
