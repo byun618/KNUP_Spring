@@ -51,7 +51,32 @@ CREATE TABLE knup_print(
 CREATE SEQUENCE seq_print START WITH 1 INCREMENT BY 1 MAXVALUE 1000 CYCLE NOCACHE;
 
 ----0427 db----
-
+//print table에 code를 추가하고, pritner table의 printerLoc를 printerName으로 변경하였습니다.
 
 Alter table knup_print add(code varchar2(20));
-Alter table knup_printer rename column printerLoc to printName;
+Alter table knup_printer rename column printerLoc to printerName;
+
+//printerNo를 drop하고 printerName을 print의 foreign key로 설정하였습니다.
+
+alter table knup_print drop constraint fk_code2;
+Alter table knup_print drop column printerNo;
+Alter table knup_print add printerName varchar2(20);
+alter table knup_print add UNIQUE(printerName);
+alter table knup_printer add UNIQUE(printerName);
+alter table knup_print add constraint fk_code2 FOREIGN KEY(printerName) REFERENCES knup_printer(printerName);
+
+//설정한 제약조건을 확인합니다.
+select a.constraint_name, a.table_name, b.column_name, a.constraint_type, a.r_constraint_name
+from user_constraints a, user_cons_columns b
+where
+a.constraint_name=b.constraint_name;
+
+//constraint_type
+// - P : 기본키 (Primary Key)
+//
+// - R : 외래키 (Foreign Key)
+//
+// - U : 고유값 (Unique)
+//
+// - C : 체크 (Not Null, Check). search_condition 컬럼에서 내용 확인 가능합니다.
+
